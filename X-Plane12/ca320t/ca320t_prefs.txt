@@ -1,6 +1,6 @@
 I
 10 Version
-_hobs_time 38446.244165
+_hobs_time 50700.202620
 _livery_req 0
 _track_up_0 0
 _data_fields_0 0
@@ -58,10 +58,10 @@ _odo_2 0.000000
 _gsmax_2 0.000000
 _dg_lat_adjust_0 0.000000
 _dg_lat_adjust_1 0.000000
-_dg_lat_adjust_2 47.171490
-_dg_lat_adjust_3 47.171490
-_dg_lat_adjust_4 47.171490
-_dg_lat_adjust_5 47.171490
+_dg_lat_adjust_2 47.379887
+_dg_lat_adjust_3 47.379887
+_dg_lat_adjust_4 47.379887
+_dg_lat_adjust_5 47.379887
 atc/_acf_make_ AIRBUS
 atc/_acf_model_ A-320
 atc/_acf_tailnumber_ CA320T
