@@ -1,119 +1,48 @@
-# CA320T - X-Plane 12 Sub-250 Twin-Motor Tailsitter
+# CA320T Tailsitter for X-Plane 11 and X-Plane 12
 
-This repository contains the X-Plane 12 flight model of the **CA320T**, a compact FPV tailsitter wing based on the real CarviFPV concept.
+This repository contains both CA320T tailsitter models:
 
-The simulated aircraft is designed around these key characteristics:
+- one setup for X-Plane 11
+- one setup for X-Plane 12
 
-- **Class:** Sub-250 g FPV bi-motor tailsitter wing
-- **Wingspan:** 32 cm
-- **Power-to-weight:** approximately **4:1 thrust-to-weight**
-- **Primary use case:** VTOL tailsitter simulation and control testing
+## Installation
 
-## Project Goal
+Use the folder that matches your simulator version:
 
-The purpose of this model is to simulate the real **CA320T** platform as closely as possible in X-Plane 12.  
-The real-world CA320T design will be available **exclusively on Makerworld.com**.
+1. For X-Plane 11: copy the content of `X-Plane11` into your X-Plane 11 root folder.
+2. For X-Plane 12: copy the content of `X-Plane12` into your X-Plane 12 root folder.
 
-This simulation environment is especially useful for:
+After copying, start X-Plane, select the CA320T aircraft, and fly.
 
-- transition training (hover to forward flight and back)
-- control allocation validation for dual-motor tailsitters
-- mission logic checks before real-world flights
-- PID and navigation behavior tuning in a safe environment
+## Recommended Control Setup
 
-## Important: Full Functionality Requires ArduPilot SITL
+If you have an RC transmitter, it is recommended to connect it and use it as a joystick in X-Plane.
+This usually gives a much more realistic control feel for a tailsitter.
 
-You can load and fly the aircraft in X-Plane directly, but to use the **full feature set** it should be operated together with:
+## Included FlyWithLua Scripts
 
-- **ArduPilot SITL**
-- **Mission Planner**
+The FlyWithLua script folders include the following helper scripts.
 
-In this setup, X-Plane acts as the physics and visual simulator, while ArduPilot SITL provides the autopilot logic exactly as in real operations.
+### Common Scripts (X-Plane 11 and X-Plane 12)
 
-## Repository Structure
+- `arduplane_osd.lua`
+  Shows an ArduPlane-style FPV OSD overlay (compass bar, speed, altitude, vertical speed, battery estimate, horizon helper).
 
-Main folders used in this project:
+- `disable_redout.lua`
+  Disables redout/blackout (G-force dimming) effects.
 
-- `X-Plane12/ca320t/` - aircraft model files for X-Plane 12
-- `X-Plane12/Ardupilot/xplane_plane.json` - ArduPilot interface mapping/config
-- `X-Plane12/Lua/` - helper scripts (logging, startup, utility functions)
+- `flylog.lua`
+  Logs arming/disarming events and flight duration to `LOGS/flylog.csv` for later analysis in https://uavdesk.app.
 
-## Requirements
+- `tellog.lua`
+  Records telemetry data (GPS, altitude, speed, attitude, and control inputs) to CSV files in the `LOGS` folder, which can be imported into https://uavdesk.app.
 
-To run the complete workflow you typically need:
+### Additional Script in X-Plane 12
 
-1. X-Plane 12
-2. ArduPilot SITL (latest stable or development build)
-3. Mission Planner (Windows)
-4. Proper SITL-to-X-Plane bridge configuration
+- `ca320t_pitch_roll_sensitivity.lua`
+  Reduces pitch and roll input sensitivity to make manual control smoother.
 
-## Quick Start
+## Notes
 
-1. Place the `ca320t` aircraft folder into your X-Plane 12 aircraft directory.
-2. Ensure the ArduPilot mapping file (`xplane_plane.json`) is available for your SITL setup.
-3. Start ArduPilot SITL with tailsitter-capable firmware/settings.
-4. Open Mission Planner and connect to SITL.
-5. Start X-Plane and load the CA320T model.
-6. Verify control surfaces/motor outputs and direction before arming.
-7. Perform hover, transition, and fixed-wing tests in a safe virtual environment.
-
-## Recommended Simulation Workflow
-
-For best results, use this order for each test session:
-
-1. **Sensor and frame check**  
-	Confirm expected orientation, frame type, and control output mapping.
-2. **Hover validation**  
-	Test stable vertical behavior and attitude response.
-3. **Transition envelope expansion**  
-	Gradually increase transition speed and angle targets.
-4. **Forward-flight tuning**  
-	Validate roll/pitch/yaw authority and tracking behavior.
-5. **Autonomous mission validation**  
-	Run planned mission segments in SITL before real deployment.
-
-## Notes on Aircraft Behavior
-
-Because the CA320T has high thrust relative to mass, expect:
-
-- very aggressive acceleration response
-- fast attitude changes from small control inputs
-- increased sensitivity during transition phases
-
-Start with conservative gains and gradually tune for your desired handling qualities.
-
-## Included Lua Scripts
-
-The `X-Plane12/Lua/` directory includes helper scripts for logging and session utilities.  
-Depending on your plugin setup (for example FlyWithLua), these can support repeatable testing and diagnostics.
-
-## Current Status
-
-This repository is focused on simulation and iterative development.  
-Parameters, mappings, and tuning values may evolve as the real CA320T platform is finalized.
-
-## Troubleshooting
-
-If behavior looks wrong, check the following first:
-
-- axis and orientation mapping between SITL and X-Plane
-- motor direction and output assignment
-- frame configuration and tailsitter-specific parameters
-- communication link status between SITL and Mission Planner
-- Lua/plugin environment loading correctly
-
-## Disclaimer
-
-This project is for simulation, testing, and educational use.  
-Any transfer of tuning values from simulation to real hardware must be validated carefully and safely.
-
----
-
-If you are preparing for real CA320T operations, use this model to validate transitions, mission logic, and failure-handling scenarios before first physical flights.
-
-## Log Export for UAVDesk
-
-The scripts `flylog.lua` and `tellog.lua` create a `LOG` folder in the X-Plane root directory.
-This folder stores telemetry data and flight times for each flight session.
-
-The generated logs can be imported directly into **[uavdesk.app](https://uavdesk.app)**.
+- Most scripts are intended for `ca320t.acf`.
+- If needed, you can adjust script values to fit your controller and flying style.
