@@ -15235,6 +15235,7 @@ P acf/_m_shift_dx 0.0
 P acf/_m_shift_dz 0.0
 P acf/_manual_rad_gyr 0
 P acf/_manual_reversion_rat 0.0
+P acf/_manufacturer CarviFPV
 P acf/_mast_bump_cyclic_ailn 0.0
 P acf/_mast_bump_cyclic_roll 0.0
 P acf/_max_CHT 500.0
@@ -15840,7 +15841,7 @@ P acf/_vect_power_for 1.0
 P acf/_vect_rate 15.0
 P acf/_vectarmY 0.0
 P acf/_vectarmZ 0.0
-P acf/_version 0.3
+P acf/_version 1.0
 P acf/_vvi_but_adjusts_pitch 0
 P acf/_warn_airliner 0
 P acf/_warn_alt_app_100 0

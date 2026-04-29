@@ -15676,6 +15676,7 @@ P acf/_m_shift_dx 0.000000000
 P acf/_m_shift_dz 0.000000000
 P acf/_manual_rad_gyr 0
 P acf/_manual_reversion_rat 0.000000000
+P acf/_manufacturer CarviFPV
 P acf/_mast_bump_cyclic_ailn 0.000000000
 P acf/_mast_bump_cyclic_roll 0.000000000
 P acf/_max_CHT 500.000000000
@@ -16311,7 +16312,7 @@ P acf/_vect_min_nace 0.000000000
 P acf/_vect_power_aft 1.000000000
 P acf/_vect_power_for 1.000000000
 P acf/_vect_rate 15.000000000
-P acf/_version 0.3
+P acf/_version 1.0
 P acf/_vnav_descend_auto_arm 0
 P acf/_vor_mode_has_dead_reckon 0
 P acf/_vvi_but_adjusts_pitch 0
